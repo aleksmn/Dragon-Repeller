@@ -1,0 +1,68 @@
+body {
+    background-color: rgb(7, 7, 41);
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+    font-family: "Permanent Marker", cursive;
+}
+
+.game {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 20px;
+    margin: auto;
+    max-width: 500px;
+}
+
+.info {
+    border: 1px solid rgb(7, 7, 41);
+    display: flex;
+}
+
+.info-text {
+    margin-right: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.xp {
+    margin-left: 5px;
+}
+
+span {
+    font-weight: bold;
+}
+
+.buttons {
+    border: 1px solid rgb(7, 7, 41);
+}
+
+button {
+    background-image: linear-gradient(rgb(251, 255, 0), rgb(255, 123, 0));
+    border-color: rgb(255, 123, 0);
+    margin: 5px;
+}
+
+button:hover {
+    background-image: linear-gradient(rgb(255, 123, 0), rgb(251, 255, 0));
+    border-color: rgb(255, 123, 0);
+    margin: 5px;
+}
+
+.text {
+    color: rgb(255, 123, 0);
+    font-family: "Permanent Marker", cursive;
+    border: 1px solid rgb(7, 7, 41);
+    padding: 5px;
+
+}
+
+.monster-stats {
+    display: none;
+    background-color: red;
+    color: white;
+    padding: 5px;
+}

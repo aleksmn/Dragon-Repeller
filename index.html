@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>Dragon Repeller</title>
+</head>
+
+<body>
+
+    <h1>Dragon Repeller</h1>
+
+    <div class="game">
+        <div class="info">
+            <div class="info-text xp">XP: <span id="xp">0</span></div>
+            <div class="info-text health">Health: <span id="health">100</span></div>
+            <div class="info-text gold">Gold: <span id="gold">50</span></div>
+        </div>
+
+        <div class="buttons">
+            <button id="button-1">Go to store</button>
+            <button id="button-2">Go to cave</button>
+            <button id="button-3">Fight dragon</button>
+        </div>
+
+        <div class="monster-stats" id="monster-stats">
+            <span class="info-text">Monster Name: <span id="monster-name"></span></span>
+            <span class="info-text">Monster Health: <span id="monster-health"></span></span>
+        </div>
+
+        <div id="text" class="text">Welcome to Dragon Repeller. You must defeat the dragon that is preventing people from leaving
+            the town. You are in the town square. Where do you want to go? Use the buttons above.</div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

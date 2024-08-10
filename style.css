@@ -66,3 +66,11 @@ button:hover {
     color: white;
     padding: 5px;
 }
+
+.image {
+    height: 300px;
+    object-fit: cover;
+    background-size: cover;
+    background-image: url(/images/welcome.jpg);
+    background-position: center;
+}

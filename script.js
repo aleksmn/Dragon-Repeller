@@ -14,7 +14,10 @@ console.log(monsterStats);
 const monsterName = document.getElementById('monster-name');
 const monsterHealthText = document.getElementById('monster-health');
 
+const image = document.getElementById('image');
+
 let health = 100;
+let maxHealth = 300;
 let gold = 50;
 let xp = 0;
 
@@ -35,19 +38,22 @@ const locations = [
         name: "town square",
         buttonText: ["Go to store", "Go to cave", "Fight Dragon"],
         buttonFunctions: [goStore, goCave, fightDragon],
-        text: "You are in the town square."
+        text: "You are in the town square.",
+        img: "town-square.webp"
     },
     {
         name: "store",
         buttonText: ["Buy 10 health (10 gold)", "Buy weapon (30 gold)", "Go to town square"],
         buttonFunctions: [buyHealth, buyWeapon, goToTownSquare],
-        text: "You enter the store."
+        text: "You enter the store.",
+        img: "store.jpg"
     },
     {
         name: "cave",
         buttonText: ["Fight slime", "Fight fanged beast", "Go to town square"],
         buttonFunctions: [fightSlime, fightFangedBeast, goToTownSquare],
-        text: "You enter the cave. You see some monsters."
+        text: "You enter the cave. You see some monsters.",
+        img: "cave.avif"
     },
     {
         name: "fight",
@@ -59,20 +65,29 @@ const locations = [
         name: "killMonster",
         buttonText: ["Go to town square", "Go to town square", "Go to town square"],
         buttonFunctions: [goToTownSquare, goToTownSquare, goToTownSquare],
-        text: "You have defeated the monster, you gained some gold and experience."
+        text: "You have defeated the monster, you gained some gold and experience.",
+        img: "wictory.jpg"
     },
     {
         name: "gameOver",
         buttonText: ["Restart", "Restart", "Restart"],
         buttonFunctions: [restart, restart, restart],
-        text: "You died. Game Over. Click restart to replay."
+        text: "You died. Game Over. Click restart to replay.",
+        img: "game-over.jpg"
+    },
+    {
+        name: "win",
+        buttonText: ["Restart", "Restart", "Restart"],
+        buttonFunctions: [restart, restart, restart],
+        text: "You have defeated the dragon. You completed the game. Thanks for playing.",
+        img: "win.jpg"
     }
 ];
 
 const monsters = [
-    { name: "slime", level: 2, health: 15 },
-    { name: "fanged beast", level: 8, health: 60 },
-    { name: "dragon", level: 20, health: 300 }
+    { name: "slime", level: 2, health: 15, img: "monster-slime.webp" },
+    { name: "fanged beast", level: 8, health: 60, img: "fanged-beast.jpg" },
+    { name: "dragon", level: 20, health: 300, img: "dragon.jpg" }
 ];
 
 let currentWeaponIndex = 0;
@@ -90,6 +105,7 @@ function update(location) {
     button3.onclick = location.buttonFunctions[2];
     text.textContent = location.text;
     monsterStats.style.display = "none";
+    image.style.backgroundImage = `url(/images/${location.img})`;
 }
 
 function goStore() {
@@ -105,9 +121,15 @@ function goCave() {
 }
 
 function buyHealth() {
-    if (goldText.textContent >= 10) {
-        health = health + 10;
-        gold = gold - 10;
+    if (gold >= 10) {
+        if (health >= maxHealth) {
+            health = maxHealth;
+            text.textContent = "You are at full health.";
+        }
+        else {
+            health = health + 10;
+            gold = gold - 10;
+        }
         healthText.textContent = health;
         goldText.textContent = gold;
     }
@@ -156,14 +178,14 @@ function sellWeapon() {
 
 function goFight() {
     update(locations[3]);
-    console.log(fighting);
     monsterHealth = monsters[fighting].health;
-    console.log(monsterHealth);
-    console.log(monsters[fighting].name);
-    console.log(monsters[fighting].level);
     monsterStats.style.display = "block";
     monsterName.textContent = monsters[fighting].name;
     monsterHealthText.textContent = monsters[fighting].health;
+    console.log(`../images/${monsters[fighting].img}`)
+    console.log(monsters[fighting].img)
+    image.style.backgroundImage = `url(/images/${monsters[fighting].img})`;
+
 }
 
 function fightSlime() {
@@ -194,8 +216,9 @@ function attack() {
     }
     if (monsters[fighting].name == "dragon" && monsterHealth <= 0) {
         text.textContent = "You have defeated the dragon. You completed the game. Thanks for playing."
+        update(locations[6]);
     }
-    if (Math.random() > 0.85 && currentWeaponIndex > 0) {
+    if (Math.random() > 0.9 && currentWeaponIndex > 0) {
         text.textContent = `Your ${weapons[currentWeaponIndex].name} is broken.`
         inventory.pop();
         currentWeaponIndex--;

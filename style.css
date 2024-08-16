@@ -71,6 +71,6 @@ button:hover {
     height: 300px;
     object-fit: cover;
     background-size: cover;
-    background-image: url(/images/welcome.jpg);
+    background-image: url(images/welcome.jpg);
     background-position: center;
 }

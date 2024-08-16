@@ -105,7 +105,7 @@ function update(location) {
     button3.onclick = location.buttonFunctions[2];
     text.textContent = location.text;
     monsterStats.style.display = "none";
-    image.style.backgroundImage = `url(/images/${location.img})`;
+    image.style.backgroundImage = `url(images/${location.img})`;
 }
 
 function goStore() {
@@ -184,7 +184,7 @@ function goFight() {
     monsterHealthText.textContent = monsters[fighting].health;
     console.log(`../images/${monsters[fighting].img}`)
     console.log(monsters[fighting].img)
-    image.style.backgroundImage = `url(/images/${monsters[fighting].img})`;
+    image.style.backgroundImage = `url(images/${monsters[fighting].img})`;
 
 }
 

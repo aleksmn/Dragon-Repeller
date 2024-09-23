@@ -203,7 +203,7 @@ function fightDragon() {
 
 function attack() {
     text.textContent = `The ${monsters[fighting].name} attacks. You are attacked with ${weapons[currentWeaponIndex].name}.`;
-    health -= getMonsterAttackWalue(monsters[fighting].level);
+    health -= getMonsterAttackValue(monsters[fighting].level);
     console.log(health);
     healthText.textContent = health;
     monsterHealth -= weapons[currentWeaponIndex].power + Math.floor(Math.random() * xp) + 1
@@ -250,7 +250,7 @@ function restart() {
     goldText.textContent = gold;
 }
 
-function getMonsterAttackWalue(level) {
+function getMonsterAttackValue(level) {
     const hit = level * 5 - (Math.floor(Math.random() * xp) + 1);
     return hit > 0 ? hit : 0
 }
